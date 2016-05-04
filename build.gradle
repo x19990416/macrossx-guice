@@ -1,0 +1,63 @@
+apply plugin: "java"
+apply plugin: "maven"
+
+group = "com.macrossx.contribute"
+version='1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+task "create-dirs" << {
+   sourceSets*.java.srcDirs*.each { it.mkdirs() }
+   sourceSets*.resources.srcDirs*.each { it.mkdirs() }
+}
+
+sourceSets.all { set ->
+    def jarTask = task("${set.name}Jar", type: Jar) {
+        baseName = baseName + "-$set.name"
+        from set.output
+    }
+
+    artifacts {
+        archives jarTask
+    }
+}
+
+sourceSets {
+	groovyTemplate
+}
+
+jar {
+    from sourceSets.groovyTemplate.output
+ //   from sourceSets.impl.output
+}
+
+dependencies {
+ 	compile 'com.google.inject:guice:4.0'
+	compile 'org.codehaus.groovy:groovy-all:2.4.6'
+	compile 'org.projectlombok:lombok:1.16.6'
+ 
+	groovyTemplateCompile 'com.google.inject:guice:4.0'
+	groovyTemplateCompile 'org.codehaus.groovy:groovy-all:2.4.6'
+	groovyTemplateCompile 'org.projectlombok:lombok:1.16.6'
+	
+	
+}
+
+
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+			repository(url: 'http://180.166.28.123:8081/nexus/content/repositories/snapshots'){
+			authentication(userName: 'deployment', password: 'deployment')}
+
+            ["groovyTemplate"].each { type ->
+                addFilter(type) { artifact, file -> artifact.name.endsWith("-$type") }
+                // We now have to map our configurations to the correct maven scope for each pom
+            }
+
+        }
+    }
+}
