@@ -67,13 +67,7 @@ public class WechatModule extends PrivateModule {
 		//
 		// tempalte.setData(data);
 		// helper.sendTemplate(template);
-		WechatMessageTemplate tempalte = new WechatMessageTemplate.KeywordBuilder()
-				.touser("oG_RsuBciQQik9vSD2W8hW8wkqr8").templateId("7uzNMz58yLsSf10FWt0zDZllpjbLUJHxapNpzxLLbPs")
-				.first("读者您好，你的图书已续借成功", "#FF000").keyword1("2014年7月21日 18:36", "#FF000").keyword2("1", "#FF000").remark("感谢你的使用。", "#000000")
-				.build();
 
-		System.out.println(new Gson().toJson(tempalte));
-		System.out.println(helper.sendTemplate(tempalte));
 
 	}
 }

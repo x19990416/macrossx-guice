@@ -17,9 +17,11 @@ package com.macrossx.wechat.entity;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
+@ToString(callSuper=true)
 public class WechatAccessToken extends WechatResponseObj {
 	private String access_token;
 	private int expires_in;
