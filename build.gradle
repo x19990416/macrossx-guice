@@ -26,6 +26,7 @@ sourceSets.all { set ->
 
 sourceSets {
 	groovyTemplate
+	wechat
 }
 
 jar {
@@ -37,10 +38,20 @@ dependencies {
  	compile 'com.google.inject:guice:4.0'
 	compile 'org.codehaus.groovy:groovy-all:2.4.6'
 	compile 'org.projectlombok:lombok:1.16.6'
+ 	compile 'org.apache.httpcomponents:httpclient:4.5.2'
+	compile 'com.google.code.gson:gson:2.6.2'
+	compile 'com.macrossx:macrossx-common:0.1.0-SNAPSHOT'
+	
  
 	groovyTemplateCompile 'com.google.inject:guice:4.0'
 	groovyTemplateCompile 'org.codehaus.groovy:groovy-all:2.4.6'
 	groovyTemplateCompile 'org.projectlombok:lombok:1.16.6'
+	
+	wechatCompile 'org.apache.httpcomponents:httpclient:4.5.2'
+	wechatCompile 'com.google.code.gson:gson:2.6.2'
+	wechatCompile 'com.macrossx:macrossx-common:0.1.0-SNAPSHOT'
+
+	
 	
 	
 }
