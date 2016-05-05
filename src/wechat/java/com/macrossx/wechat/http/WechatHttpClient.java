@@ -26,14 +26,13 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 
 import com.google.gson.Gson;
-import com.sun.istack.internal.NotNull;
 
 import lombok.extern.java.Log;
 
 @Log
 public class WechatHttpClient<T> {
 
-	public Optional<T> send(@NotNull final HttpUriRequest request, Class<T> clazz) {
+	public Optional<T> send( final HttpUriRequest request, Class<T> clazz) {
 		String result = this.send(request);
 		if (result.isEmpty()) {
 			return Optional.empty();
@@ -42,7 +41,7 @@ public class WechatHttpClient<T> {
 		}
 	}
 
-	public String send(@NotNull final HttpUriRequest request) {
+	public String send(final HttpUriRequest request) {
 		String result = "";
 		try {
 			CloseableHttpResponse response = HttpClients.createDefault().execute(request);
