@@ -68,6 +68,11 @@ uploadArchives {
                 addFilter(type) { artifact, file -> artifact.name.endsWith("-$type") }
                 // We now have to map our configurations to the correct maven scope for each pom
             }
+            
+            ["wechat"].each { type ->
+                addFilter(type) { artifact, file -> artifact.name.endsWith("-$type") }
+                // We now have to map our configurations to the correct maven scope for each pom
+            }
 
         }
     }
