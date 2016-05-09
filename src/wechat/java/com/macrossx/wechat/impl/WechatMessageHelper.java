@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.macrossx.wechat;
+package com.macrossx.wechat.impl;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -26,6 +26,9 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 
 import com.google.gson.Gson;
+import com.macrossx.wechat.IWechatHelper;
+import com.macrossx.wechat.IWechatMessageHelper;
+import com.macrossx.wechat.WechatConstants;
 import com.macrossx.wechat.entity.WecahtMessageTemplateRespObj;
 import com.macrossx.wechat.entity.WechatAccessToken;
 import com.macrossx.wechat.entity.WechatMessageTemplate;
@@ -56,6 +59,13 @@ public class WechatMessageHelper implements IWechatMessageHelper {
 			log.info(e.getMessage());
 		}
 		return Optional.empty();
+	}
+	
+	
+	public static void main(String...s){
+		String k ="";
+		
+		
 	}
 
 }

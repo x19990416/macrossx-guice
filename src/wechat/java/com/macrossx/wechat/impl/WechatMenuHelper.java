@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.macrossx.wechat;
+package com.macrossx.wechat.impl;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -30,6 +30,9 @@ import org.apache.http.entity.StringEntity;
 
 import com.google.common.collect.Maps;
 import com.google.gson.Gson;
+import com.macrossx.wechat.IWechatHelper;
+import com.macrossx.wechat.IWechatMenuHelper;
+import com.macrossx.wechat.WechatConstants;
 import com.macrossx.wechat.entity.WechatAccessToken;
 import com.macrossx.wechat.entity.WechatButton;
 import com.macrossx.wechat.entity.WechatMenu;

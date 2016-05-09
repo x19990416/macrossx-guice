@@ -13,12 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.macrossx.wechat;
+package com.macrossx.wechat.entity;
 
-import java.util.Optional;
+import java.util.List;
 
-import com.macrossx.wechat.entity.WechatAccessToken;
+import lombok.Data;
 
-public interface IWechatHelper {
-	public Optional<WechatAccessToken>  getAccessToken();
+@Data
+public class WechatUserInfo {
+	private int subscribe;
+	private String openid;
+	private String nickname;
+	private String sex;
+	private String language;
+	private String city;
+	private String province;
+	private String country;
+	private String headimurl;
+	private String subscribe_time;
+	private String unionid;
+	private String remark;
+	private int groupid;
+	private List tagid_list;	
 }

@@ -21,5 +21,7 @@ public interface WechatConstants {
 	public static final String MENU_DELETE_URL = "https://api.weixin.qq.com/cgi-bin/menu/delete?access_token={0}";
 	public static final String MENU_GET_URL = "https://api.weixin.qq.com/cgi-bin/menu/get?access_token={0}";
 	public static final String MESSAGE_TEMPLATE_SEND_URL = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token={0}";
+	public static final String USER_GET_URL = "https://api.weixin.qq.com/cgi-bin/user/get?access_token={0}&next_openid={1}";
+	public static final String USER_INFO_URL = "https://api.weixin.qq.com/cgi-bin/user/info?access_token={0}&openid={1}";
 
 }

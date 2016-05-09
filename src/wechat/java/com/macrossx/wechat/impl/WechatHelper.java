@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.macrossx.wechat;
+package com.macrossx.wechat.impl;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -25,6 +25,8 @@ import javax.inject.Named;
 
 import org.apache.http.client.methods.HttpGet;
 
+import com.macrossx.wechat.IWechatHelper;
+import com.macrossx.wechat.WechatConstants;
 import com.macrossx.wechat.entity.WechatAccessToken;
 import com.macrossx.wechat.http.WechatHttpClient;
 

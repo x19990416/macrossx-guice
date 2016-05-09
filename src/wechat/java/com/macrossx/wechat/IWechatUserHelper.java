@@ -17,8 +17,10 @@ package com.macrossx.wechat;
 
 import java.util.Optional;
 
-import com.macrossx.wechat.entity.WechatAccessToken;
+import com.macrossx.wechat.entity.WechatUserGet;
+import com.macrossx.wechat.entity.WechatUserInfo;
 
-public interface IWechatHelper {
-	public Optional<WechatAccessToken>  getAccessToken();
+public interface IWechatUserHelper {
+	public Optional<WechatUserGet> userGet(String nextOpenid);
+	public Optional<WechatUserInfo> userInfo(String openid);
 }
