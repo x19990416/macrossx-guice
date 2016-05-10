@@ -15,27 +15,11 @@
  */
 package com.macrossx.wechat;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.text.MessageFormat;
-import java.util.List;
-
-import org.apache.http.client.methods.HttpGet;
-
-import com.google.inject.Binder;
-import com.google.inject.Guice;
-import com.google.inject.Injector;
-import com.google.inject.Module;
 import com.google.inject.PrivateModule;
-import com.google.inject.name.Names;
-import com.macrossx.wechat.entity.WechatMessageTemplate;
-import com.macrossx.wechat.http.WechatHttpClient;
 import com.macrossx.wechat.impl.WechatHelper;
 import com.macrossx.wechat.impl.WechatMenuHelper;
 import com.macrossx.wechat.impl.WechatMessageHelper;
 import com.macrossx.wechat.impl.WechatUserHelper;
-
-import lombok.Data;
 
 /**
  * module for wechat,needs constant bind with "macorssx.wechat.appid" &
