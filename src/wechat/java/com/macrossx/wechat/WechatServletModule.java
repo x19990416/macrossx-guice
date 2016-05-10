@@ -40,7 +40,9 @@ import com.macrossx.wechat.impl.WechatMessageHelper;
  * @author starseeker.limin@gmail.com(X-Forever)
  */
 public class WechatServletModule extends ServletModule	 {
-
+	  protected void configureServlets() {
+		  
+	  }
 	
 
 }
