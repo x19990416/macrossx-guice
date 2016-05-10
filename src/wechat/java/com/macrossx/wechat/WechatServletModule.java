@@ -15,16 +15,8 @@
  */
 package com.macrossx.wechat;
 
-import com.google.inject.Binder;
-import com.google.inject.Guice;
-import com.google.inject.Module;
-import com.google.inject.name.Names;
 import com.google.inject.servlet.ServletModule;
-import com.macrossx.wechat.entity.WechatMessageTemplate;
-import com.macrossx.wechat.http.WechatHttpClient;
-import com.macrossx.wechat.impl.WechatHelper;
-import com.macrossx.wechat.impl.WechatMenuHelper;
-import com.macrossx.wechat.impl.WechatMessageHelper;
+import com.macrossx.wechat.servlet.WechatCoreServlet;
 
 /**
  * module for wechat,needs constant bind with "macorssx.wechat.appid" &
@@ -41,7 +33,7 @@ import com.macrossx.wechat.impl.WechatMessageHelper;
  */
 public class WechatServletModule extends ServletModule	 {
 	  protected void configureServlets() {
-		  
+		   serve("/wechat/wechat.do").with(WechatCoreServlet.class);
 	  }
 	
 

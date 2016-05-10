@@ -60,12 +60,4 @@ public class WechatMessageHelper implements IWechatMessageHelper {
 		}
 		return Optional.empty();
 	}
-	
-	
-	public static void main(String...s){
-		String k ="";
-		
-		
-	}
-
 }
