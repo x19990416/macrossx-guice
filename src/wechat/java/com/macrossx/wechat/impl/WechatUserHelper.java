@@ -48,7 +48,7 @@ public class WechatUserHelper implements IWechatUserHelper {
 
 				httpGet.setURI(new URI(MessageFormat.format(WechatConstants.USER_GET_URL, accessToken.getAccess_token(),
 						nextOpenid == null ? "" : nextOpenid)));
-				return new WechatHttpClient<WechatUserGet>().send(httpGet, WechatUserGet.class);
+				return new WechatHttpClient().send(httpGet, WechatUserGet.class);
 			}
 		} catch (URISyntaxException e) {
 			// TODO Auto-generated catch block
@@ -66,7 +66,7 @@ public class WechatUserHelper implements IWechatUserHelper {
 
 				httpGet.setURI(new URI(MessageFormat.format(WechatConstants.USER_INFO_URL, accessToken.getAccess_token(),
 						openid)));
-				return new WechatHttpClient<WechatUserInfo>().send(httpGet, WechatUserInfo.class);
+				return new WechatHttpClient().send(httpGet, WechatUserInfo.class);
 			}
 		} catch (URISyntaxException e) {
 			// TODO Auto-generated catch block

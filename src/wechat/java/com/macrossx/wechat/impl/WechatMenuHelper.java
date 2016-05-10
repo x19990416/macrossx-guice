@@ -67,7 +67,7 @@ public class WechatMenuHelper implements IWechatMenuHelper {
 				httpPost.setEntity(new StringEntity(new Gson().toJson(menus), "utf-8"));
 				httpPost.setURI(
 						new URI(MessageFormat.format(WechatConstants.MENU_CREATE_URL, accessToken.getAccess_token())));
-				Optional<WechatResponseObj> response = new WechatHttpClient<WechatResponseObj>().send(httpPost,
+				Optional<WechatResponseObj> response = new WechatHttpClient().send(httpPost,
 						WechatResponseObj.class);
 				if (response.isPresent()) {
 					WechatResponseObj e = response.get();
@@ -100,7 +100,7 @@ public class WechatMenuHelper implements IWechatMenuHelper {
 				HttpGet httpGet = new HttpGet();
 				httpGet.setURI(
 						new URI(MessageFormat.format(WechatConstants.MENU_DELETE_URL, accessToken.getAccess_token())));
-				Optional<WechatResponseObj> response = new WechatHttpClient<WechatResponseObj>().send(httpGet,
+				Optional<WechatResponseObj> response = new WechatHttpClient().send(httpGet,
 						WechatResponseObj.class);
 				if (response.isPresent()) {
 					WechatResponseObj e = response.get();
@@ -126,7 +126,7 @@ public class WechatMenuHelper implements IWechatMenuHelper {
 				HttpGet httpGet = new HttpGet();
 				httpGet.setURI(
 						new URI(MessageFormat.format(WechatConstants.MENU_GET_URL, accessToken.getAccess_token())));
-				return new WechatHttpClient<WechatMenu>().send(httpGet, WechatMenu.class);
+				return new WechatHttpClient().send(httpGet, WechatMenu.class);
 			}
 		} catch (URISyntaxException e) {
 			log.info(e.getMessage());

@@ -30,9 +30,9 @@ import com.google.gson.Gson;
 import lombok.extern.java.Log;
 
 @Log
-public class WechatHttpClient<T> {
+public class WechatHttpClient {
 
-	public Optional<T> send( final HttpUriRequest request, Class<T> clazz) {
+	public <T> Optional<T> send( final HttpUriRequest request, Class<T> clazz) {
 		String result = this.send(request);
 		if (result.isEmpty()) {
 			return Optional.empty();

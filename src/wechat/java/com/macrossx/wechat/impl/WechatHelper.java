@@ -55,7 +55,7 @@ public class WechatHelper implements IWechatHelper {
 			long current = System.currentTimeMillis();
 			HttpGet httpGet = new HttpGet();
 			httpGet.setURI(new URI(MessageFormat.format(WechatConstants.ACCESS_TOKEN_URL, appid, appsecret)));
-			return new WechatHttpClient<WechatAccessToken>().send(httpGet, WechatAccessToken.class).map((e) -> {
+			return new WechatHttpClient().send(httpGet, WechatAccessToken.class).map((e) -> {
 				_access_token = e;
 				_token_time = current + _access_token.getExpires_in() - 60;
 				return _access_token;

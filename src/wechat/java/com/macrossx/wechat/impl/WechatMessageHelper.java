@@ -52,7 +52,7 @@ public class WechatMessageHelper implements IWechatMessageHelper {
 				httpPost.setEntity(new StringEntity(new Gson().toJson(template), "utf-8"));
 				httpPost.setURI(new URI(MessageFormat.format(WechatConstants.MESSAGE_TEMPLATE_SEND_URL,
 						accessToken.getAccess_token())));
-				return new WechatHttpClient<WecahtMessageTemplateRespObj>().send(httpPost,
+				return new WechatHttpClient().send(httpPost,
 						WecahtMessageTemplateRespObj.class);
 			}
 		} catch (URISyntaxException e) {
