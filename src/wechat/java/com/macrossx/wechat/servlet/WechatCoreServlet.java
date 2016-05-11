@@ -40,7 +40,10 @@ import com.macrossx.wechat.IWechatServer;
 import com.macrossx.wechat.entity.server.WechatHttpEntity;
 import com.macrossx.wechat.entity.server.WechatImageRequest;
 import com.macrossx.wechat.entity.server.WechatLinkRequest;
+import com.macrossx.wechat.entity.server.WechatLocationEventRequest;
 import com.macrossx.wechat.entity.server.WechatLocationRequest;
+import com.macrossx.wechat.entity.server.WechatMenuEventRequest;
+import com.macrossx.wechat.entity.server.WechatQrsceneEventRequest;
 import com.macrossx.wechat.entity.server.WechatSubscribeEventRequest;
 import com.macrossx.wechat.entity.server.WechatTextRequest;
 import com.macrossx.wechat.entity.server.WechatVideoRequest;
@@ -130,9 +133,22 @@ public class WechatCoreServlet extends HttpServlet {
 									.onEventUnsubscribe(phraseXml(baos.toString(), WechatSubscribeEventRequest.class));
 							break;
 						}
+						case "LOCATION": {
+							entity = wechatServer
+									.onEventLocation(phraseXml(baos.toString(), WechatLocationEventRequest.class));
+							break;
 						}
-
-						entity = wechatServer.onLinkMessage(phraseXml(baos.toString(), WechatLinkRequest.class));
+						case "SCAN": {
+							entity = wechatServer
+									.onEventQrscene(phraseXml(baos.toString(), WechatQrsceneEventRequest.class));
+							break;
+						}
+						case "CLICK": {
+							entity = wechatServer
+									.onEventMenu(phraseXml(baos.toString(), WechatMenuEventRequest.class));
+							break;
+						}
+						}
 						break;
 					}
 					}
