@@ -1,11 +1,16 @@
 apply plugin: "java"
 apply plugin: "maven"
 
-group = "com.macrossx.contribute"
+group = "com.github.x19990416"
 version='1.0-SNAPSHOT'
+sourceCompatibility = 1.8
+
+targetCompatibility = 1.8
 
 repositories {
     mavenCentral()
+    maven { url "https://oss.sonatype.org/content/groups/public"}
+    
 }
 
 task "create-dirs" << {
@@ -40,8 +45,8 @@ dependencies {
 	compile 'org.projectlombok:lombok:1.16.6'
  	compile 'org.apache.httpcomponents:httpclient:4.5.2'
 	compile 'com.google.code.gson:gson:2.6.2'
-	compile 'com.macrossx:macrossx-common:0.1.0-SNAPSHOT'
-	
+	compile 'com.google.inject.extensions:guice-servlet:4.0'
+	compile 'javax.servlet:javax.servlet-api:4.0.0-b01'
  
 	groovyTemplateCompile 'com.google.inject:guice:4.0'
 	groovyTemplateCompile 'org.codehaus.groovy:groovy-all:2.4.6'
@@ -49,26 +54,28 @@ dependencies {
 	
 	wechatCompile 'org.apache.httpcomponents:httpclient:4.5.2'
 	wechatCompile 'com.google.code.gson:gson:2.6.2'
-	wechatCompile 'com.macrossx:macrossx-common:0.1.0-SNAPSHOT'
-
+	wechatCompile 'org.projectlombok:lombok:1.16.6'
+	wechatCompile 'com.google.inject:guice:4.0'
+	wechatCompile 'com.google.inject.extensions:guice-servlet:4.0'
+	wechatCompile 'javax.servlet:javax.servlet-api:4.0.0-b01'
+	
+	
+	
 	
 	
 	
 }
-
-
-
 uploadArchives {
     repositories {
         mavenDeployer {
-			repository(url: 'http://180.166.28.123:8081/nexus/content/repositories/snapshots'){
-			authentication(userName: 'deployment', password: 'deployment')}
-
-            ["groovyTemplate"].each { type ->
+			repository(url: 'https://oss.sonatype.org/content/repositories/snapshots'){
+			authentication(userName: 'xx', password: 'xx')}
+/*
+           ["groovyTemplate"].each { type ->
                 addFilter(type) { artifact, file -> artifact.name.endsWith("-$type") }
                 // We now have to map our configurations to the correct maven scope for each pom
             }
-            
+  */          
             ["wechat"].each { type ->
                 addFilter(type) { artifact, file -> artifact.name.endsWith("-$type") }
                 // We now have to map our configurations to the correct maven scope for each pom
@@ -77,3 +84,24 @@ uploadArchives {
         }
     }
 }
+
+/*
+uploadArchives {
+    repositories {
+        mavenDeployer {
+			repository(url: 'http://180.166.28.123:8081/nexus/content/repositories/snapshots'){
+			authentication(userName: 'deployment', password: 'deployment')}
+
+           ["groovyTemplate"].each { type ->
+                addFilter(type) { artifact, file -> artifact.name.endsWith("-$type") }
+                // We now have to map our configurations to the correct maven scope for each pom
+            }
+           
+            ["wechat"].each { type ->
+                addFilter(type) { artifact, file -> artifact.name.endsWith("-$type") }
+                // We now have to map our configurations to the correct maven scope for each pom
+            }
+
+        }
+    }
+}*/
