@@ -26,7 +26,7 @@ import lombok.ToString;
 @EqualsAndHashCode(callSuper=false)
 @ToString(callSuper=true)
 @XmlRootElement(name="xml")
-public class WechatPositionRequest extends WechatHttpEntity{
+public class WechatLocationRequest extends WechatHttpEntity{
 	@XmlElement(name = "Location_X")  
 	private String Location_X;
 	@XmlElement(name = "Location_Y")
