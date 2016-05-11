@@ -17,9 +17,12 @@ package com.macrossx.wechat;
 
 import com.macrossx.wechat.entity.server.WechatHttpEntity;
 import com.macrossx.wechat.entity.server.WechatImageRequest;
-import com.macrossx.wechat.entity.server.WechatImageResponse;
 import com.macrossx.wechat.entity.server.WechatLinkRequest;
+import com.macrossx.wechat.entity.server.WechatLocationEventRequest;
 import com.macrossx.wechat.entity.server.WechatLocationRequest;
+import com.macrossx.wechat.entity.server.WechatMenuEventRequest;
+import com.macrossx.wechat.entity.server.WechatQrsceneEventRequest;
+import com.macrossx.wechat.entity.server.WechatSubscribeEventRequest;
 import com.macrossx.wechat.entity.server.WechatTextRequest;
 import com.macrossx.wechat.entity.server.WechatTextResponse;
 import com.macrossx.wechat.entity.server.WechatVideoRequest;
@@ -85,6 +88,54 @@ public interface IWechatServer {
 		System.out.println("onLinkMessage[" + request + "]");
 		WechatTextResponse ret =	new WechatTextResponse();
 		ret.setContent("aaaapx");
+		ret.setCreateTime(System.currentTimeMillis());
+		ret.setToUserName(request.getFromUserName());
+		ret.setFromUserName(request.getToUserName());
+		return ret;
+	}
+	
+	default public WechatHttpEntity onEventSubscribe(WechatSubscribeEventRequest request){
+		System.out.println("onEventSubscribe[" + request + "]");
+		WechatTextResponse ret =	new WechatTextResponse();
+		ret.setContent(request.getFromUserName());
+		ret.setCreateTime(System.currentTimeMillis());
+		ret.setToUserName(request.getFromUserName());
+		ret.setFromUserName(request.getToUserName());
+		return ret;
+	}
+	
+	default public WechatHttpEntity onEventUnsubscribe(WechatSubscribeEventRequest request){
+		System.out.println("onEventUnsubscribe[" + request + "]");
+		WechatTextResponse ret =	new WechatTextResponse();
+		ret.setContent(request.getFromUserName());
+		ret.setCreateTime(System.currentTimeMillis());
+		ret.setToUserName(request.getFromUserName());
+		ret.setFromUserName(request.getToUserName());
+		return ret;
+	}
+	
+	default public WechatHttpEntity onEventQrscene(WechatQrsceneEventRequest request){
+		System.out.println("onEventQrscene[" + request + "]");
+		WechatTextResponse ret =	new WechatTextResponse();
+		ret.setContent(request.getFromUserName());
+		ret.setCreateTime(System.currentTimeMillis());
+		ret.setToUserName(request.getFromUserName());
+		ret.setFromUserName(request.getToUserName());
+		return ret;
+	}
+	default public WechatHttpEntity onEventLocation(WechatLocationEventRequest request){
+		System.out.println("onEventLocation[" + request + "]");
+		WechatTextResponse ret =	new WechatTextResponse();
+		ret.setContent(request.getFromUserName()+":"+request.getLocation_X()+":"+request.getLocation_Y()+":"+request.getPrecision());
+		ret.setCreateTime(System.currentTimeMillis());
+		ret.setToUserName(request.getFromUserName());
+		ret.setFromUserName(request.getToUserName());
+		return ret;
+	}
+	default public WechatHttpEntity onEventMenu(WechatMenuEventRequest request){
+		System.out.println("onEventMenu[" + request + "]");
+		WechatTextResponse ret =	new WechatTextResponse();
+		ret.setContent(request.getFromUserName()+":"+request.getEvent()+":"+request.getEventKey());
 		ret.setCreateTime(System.currentTimeMillis());
 		ret.setToUserName(request.getFromUserName());
 		ret.setFromUserName(request.getToUserName());
